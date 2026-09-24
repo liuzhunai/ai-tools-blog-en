@@ -31,6 +31,9 @@ nav a:hover{background:var(--primary-light)}
 .article-body p{margin-bottom:14px;font-size:.95rem}
 .article-body ul,.article-body ol{margin:0 0 16px 20px}
 .article-body li{margin-bottom:6px;font-size:.95rem}
+.article-body code{background:var(--primary-light);padding:2px 6px;border-radius:4px;font-size:.85em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.article-body pre{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:8px;padding:14px 16px;overflow-x:auto;margin:14px 0;line-height:1.55}
+.article-body pre code{background:none;padding:0;border-radius:0;font-size:.85em;color:var(--text);white-space:pre}
 .article-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.9rem}
 .article-body th{background:var(--primary-light);color:var(--primary);font-weight:600;padding:10px 12px;text-align:left}
 .article-body td{border:1px solid var(--border);padding:10px 12px}
@@ -745,9 +748,19 @@ footer p{font-size:.82rem;margin-bottom:4px}
 
 <h4>1. Claude Code (Anthropic) &mdash; Best for Complex Engineering</h4>
 <p>A terminal-native agent that reads and writes entire codebases, runs tests, and handles Git operations end-to-end. Long context supports huge repos, and it leads multiple coding benchmarks. No GUI, steep learning curve, and heavy usage can get expensive. <strong>Pricing</strong>: included in Claude Pro from $20/month.</p>
+<ul>
+<li><strong>Getting started</strong>: install and run <code>claude</code> in your terminal after subscribing, launch it in the project root &rarr; let it read the codebase first &rarr; give natural-language tasks (e.g., "refactor this module and make tests pass") &rarr; approve at each key checkpoint before it executes</li>
+<li><strong>Best for</strong>: developers doing complex refactors and cross-file changes; anyone comfortable with a terminal</li>
+<li><strong>Watch out</strong>: long-running tasks keep burning tokens &mdash; scope the files and limits first; don't let it "do whatever it wants"</li>
+</ul>
 
 <h4>2. Cursor (Anysphere) &mdash; The Daily Driver IDE</h4>
 <p>A mature AI-native IDE with seamless VS Code migration, multi-file agentic editing, and free switching between GPT/Claude/Gemini models. Heavy agent tasks burn credits fast. <strong>Pricing</strong>: free tier available; Pro $20/month.</p>
+<ul>
+<li><strong>Getting started</strong>: download the desktop app (GitHub/Google login) &rarr; import your VS Code config and extensions on first launch &rarr; Cmd/Ctrl+K to edit selected code, Cmd/Ctrl+L for whole-project chat &rarr; flip on Agent mode for cross-file changes</li>
+<li><strong>Best for</strong>: developers who want a GUI and a zero-friction migration from VS Code; students can start on the free tier</li>
+<li><strong>Watch out</strong>: Agent mode's auto-execution burns credits fast &mdash; estimate before big tasks and disable cloud sync for sensitive code</li>
+</ul>
 
 <div class="affiliate-box">
 <div class="label">Affiliate Slot &middot; Amazon Associates</div>
@@ -758,20 +771,45 @@ footer p{font-size:.82rem;margin-bottom:4px}
 
 <h4>3. TRAE (ByteDance) &mdash; Best Value for Chinese Developers</h4>
 <p>Direct access in China with strong Chinese-language understanding. The free tier covers core features, and SOLO mode builds full projects from natural language. <strong>Pricing</strong>: free tier; international $3/month+; China plans from 49 CNY/month.</p>
+<ul>
+<li><strong>Getting started</strong>: download the desktop build (direct connection in China) &rarr; create a project in SOLO mode &rarr; describe your need in one sentence in Chinese &rarr; it scaffolds a multi-file project you can run and preview immediately</li>
+<li><strong>Best for</strong>: developers in China who want to build from scratch without wrestling with environment setup; restricted-network scenarios</li>
+<li><strong>Watch out</strong>: output quality tracks how well you spec the requirement &mdash; list features first; manually review dependencies and security before shipping</li>
+</ul>
 
 <h4>4. GitHub Copilot (Microsoft) &mdash; Completion Without Limits</h4>
 <p>Broad editor coverage (VS Code, JetBrains, etc.), unlimited completions, low entry price; its autonomous agent mode is weaker than the top three. <strong>Pricing</strong>: Pro $10/month.</p>
+<ul>
+<li><strong>Getting started</strong>: install the GitHub Copilot extension in VS Code and sign in &rarr; write a comment describing intent and let it autocomplete &rarr; use natural-language terminal commands (e.g., "write a crawler with caching") to generate functions directly</li>
+<li><strong>Best for</strong>: developers who want smart autocomplete in a familiar IDE; learners (2,000 free completions/month)</li>
+<li><strong>Watch out</strong>: it excels at completion rather than autonomous multi-step work &mdash; don't expect one-shot long chains; check review policies for company code</li>
+</ul>
 
 <h3>II. General Office Agents (For Everyday Users)</h3>
 
 <h4>5. Kimi Work (Moonshot AI) &mdash; Long-Document Powerhouse</h4>
 <p>Top-tier batch long-document processing, local folder mounting, and a browser extension that reuses your login state. Ideal for research, consulting, and document-heavy roles. <strong>Pricing</strong>: membership from 39 CNY/month.</p>
+<ul>
+<li><strong>Getting started</strong>: install the desktop app and sign in &rarr; mount a local folder in a Work space &rarr; drop a 50-page research report in &rarr; ask things like "summarize the breach-of-contract clauses in this contract"</li>
+<li><strong>Best for</strong>: analysts, consultants, legal and academic roles who live in long documents; anyone cross-referencing multiple PDFs/Excel files</li>
+<li><strong>Watch out</strong>: check your company's data-compliance rules before uploading sensitive files; validate accuracy on one sample before batch runs</li>
+</ul>
 
 <h4>6. Step AI Desktop (StepFun) &mdash; All-Round Office Agent</h4>
 <p>Scan-to-start with zero configuration; its in-house Step 3.7 Flash model is trained for execution, handling stable multi-step tasks like weekly reports and content creation. <strong>Pricing</strong>: client free; 9.9 CNY weekly card or 39 CNY/month.</p>
+<ul>
+<li><strong>Getting started</strong>: download the desktop client from the official site &rarr; scan the QR code with your phone (no setup) &rarr; give a multi-step task ("aggregate this week's three group daily reports into a table") &rarr; it executes step by step via calendar, docs, and other apps</li>
+<li><strong>Best for</strong>: office workers who want to skip configuration and run multi-step tasks from one sentence; newcomers to desktop agents</li>
+<li><strong>Watch out</strong>: cross-app actions read your local data &mdash; review the permissions it asks for; double-check critical tasks when done</li>
+</ul>
 
 <h4>7. Office Raccoon (SenseTime) &mdash; Data Analysis Specialist</h4>
 <p>Parses 20+ office formats and produces editable PPTs; a weapon for data analysts and report-heavy roles. <strong>Pricing</strong>: free trial; see official site.</p>
+<ul>
+<li><strong>Getting started</strong>: upload Excel/CSV on the web &rarr; ask in natural language ("what's the sales ranking and month-over-month change per region for September") &rarr; let it build the charts &rarr; export an editable PPT/table in one click</li>
+<li><strong>Best for</strong>: finance, operations, and HR staff who produce reports daily; people who can't write SQL but want self-serve data analysis</li>
+<li><strong>Watch out</strong>: validate complex logic (dedup, weighting) on a small sample before full runs; exported PPT styling depends on the current official version</li>
+</ul>
 
 <div class="affiliate-box">
 <div class="label">Affiliate Slot &middot; ShareASale</div>
@@ -784,14 +822,29 @@ footer p{font-size:.82rem;margin-bottom:4px}
 
 <h4>8. Coze (ByteDance) &mdash; Lowest Barrier to Entry</h4>
 <p>Drag-and-drop agent building, rich plugin ecosystem (image gen, search, data parsing out of the box), one-click publishing to TikTok, Doubao, and Feishu; v3.0 supports multi-agent collaboration. <strong>Pricing</strong>: free tier with daily resource points.</p>
+<ul>
+<li><strong>Getting started</strong>: sign up at coze.com &rarr; create a bot from a template or blank &rarr; drag in a knowledge base, plugins, and workflow nodes &rarr; debug the conversation &rarr; publish in one click</li>
+<li><strong>Best for</strong>: non-technical operations, product, and support people building a business assistant; anyone who wants to validate an agent idea fast</li>
+<li><strong>Watch out</strong>: free credits won't survive high concurrency &mdash; read the pricing page first; configure content safety and sensitive-word filters before publishing publicly</li>
+</ul>
 
 <h4>9. Dify (Open Source) &mdash; Best for Self-Hosting</h4>
 <p>Open source with full data control, unrestricted model access, and powerful workflow orchestration; requires some technical background. <strong>Pricing</strong>: free self-hosted; cloud free tier from 200 messages/month.</p>
+<ul>
+<li><strong>Getting started</strong>: deploy in one command with docker compose (or use the cloud version) &rarr; create an app &rarr; orchestrate LLM, knowledge retrieval, and tool-call nodes &rarr; plug in your own model API key &rarr; publish an API for your business</li>
+<li><strong>Best for</strong>: engineering teams with on-prem systems or data-stay-in-domain requirements; developers who want deep control of orchestration</li>
+<li><strong>Watch out</strong>: self-hosting means you own upgrades and stability &mdash; budget for ops; retrieval quality depends on chunking, so tune chunks before going live</li>
+</ul>
 
 <h3>IV. Enterprise Platforms (For Organizations)</h3>
 
 <h4>10. Shizai Agent (Shizai Intelligence) &mdash; Legacy System Automation</h4>
 <p>Screen semantic understanding without API dependencies &mdash; it can operate systems with no interface. It topped the international computer-operation benchmark at 90.2% success rate and is fully adapted to China's localization stack. <strong>Pricing</strong>: community edition free; enterprise by quote.</p>
+<ul>
+<li><strong>Getting started</strong>: download the community edition &rarr; record or describe a business flow ("extract data from system A and fill system B's form") &rarr; it executes via screen understanding &rarr; configure scheduled runs and anomaly alerts</li>
+<li><strong>Best for</strong>: finance, government, and manufacturing departments stuck on legacy desktop systems; automation without APIs</li>
+<li><strong>Watch out</strong>: screen operations depend on UI versions &mdash; re-adapt after interface upgrades; test edge cases (popups, network timeouts) before going live</li>
+</ul>
 
 <h3>Quick Selection Guide</h3>
 <table>
@@ -805,6 +858,16 @@ footer p{font-size:.82rem;margin-bottom:4px}
 <tr><td>Self-hosted deployment</td><td>Dify</td><td>Open source free</td></tr>
 <tr><td>Enterprise legacy automation</td><td>Shizai Agent</td><td>Community free</td></tr>
 </table>
+
+<h3>Haven't Tried an Agent Yet? A One-Week Onboarding Path</h3>
+<p>Don't try to learn all ten tools at once. Follow this order and you'll have "your first agent with real output" within a week:</p>
+<ol>
+<li><strong>Day 1: Start in the office lane (zero barrier)</strong> &mdash; install Step AI Desktop or Kimi Work, hand it the most annoying long document or spreadsheet of the week, and experience "AI doing the work" firsthand.</li>
+<li><strong>Days 2-3: Build your own bot (no code)</strong> &mdash; create a "weekly report assistant" or "paper polisher" bot in Coze from a template, connect your knowledge base, and publish it to WeChat or Feishu.</li>
+<li><strong>Days 4-5: Let AI write code (if you have a foundation)</strong> &mdash; install Cursor (the most GUI-friendly), throw a weekend practice project at it, and learn the "describe needs &rarr; AI builds &rarr; you review" rhythm.</li>
+<li><strong>Days 6-7: Lock in one daily automation</strong> &mdash; use Dify or a Coze workflow to turn "collect data &rarr; AI analysis &rarr; output report" into a scheduled task that runs weekly.</li>
+</ol>
+<p>The goal: let agents first take over 20% of your repetitive work, then expand the boundary gradually &mdash; tools can be swapped, habits are the real barrier.</p>
 
 <div class="callout">
 <p><strong>Tip</strong>: There is no single "best" agent &mdash; only the one that best matches your scenario and budget. Start with free or community tiers, verify task completion, then decide on upgrades. Developers building custom systems can explore open frameworks like OpenClaw, LangGraph, and CrewAI; enterprises can look at Alibaba Bailian and Tencent Cloud ADP.</p>
@@ -877,6 +940,45 @@ footer p{font-size:.82rem;margin-bottom:4px}
 <li><strong>Business execution layer (code/APIs)</strong>: consume typed results and execute directly</li>
 </ol>
 <p><strong>Getting started</strong>: register at console.typesafe.ai for an API key, structure the current state, define questions (Choice/Score/Noul), call via REST API or official SDK in one shot with parallel evaluation, and consume the typed results directly.</p>
+
+<h3>Minimal Integration Example (Illustrative &mdash; Follow Official Docs)</h3>
+<p>Integrating Jev works the opposite way from a normal LLM &mdash; <strong>you don't write a prompt, you define "questions"</strong>. A typical call looks like this:</p>
+<pre><code>// 1. Define questions: ask Jev 3 judgments in a single call
+{
+  "state": "User submitted refund request for order #8841, $299, item unopened within 7 days",
+  "questions": [
+    {"id": "q1", "type": "Choice", "options": ["Approve refund", "Reject", "Escalate to human"]},
+    {"id": "q2", "type": "Score", "range": [1, 5]},    // user credit score
+    {"id": "q3", "type": "Noul"}                        // fraud risk?
+  ]
+}
+
+// 2. Jev returns typed results (no natural-language parsing needed)
+{
+  "q1": {"choice": "Approve refund", "confidence": 0.93},
+  "q2": {"score": 4.2, "confidence": 0.88},
+  "q3": {"probability": 0.35}
+}
+
+// 3. Branch directly on confidence: auto-execute if &gt;0.9, else escalate</code></pre>
+<p>One API call, millisecond latency &mdash; replacing the old "prompt &rarr; JSON output &rarr; parse &rarr; fix errors" pipeline.</p>
+
+<h3>Limitations &amp; Controversies: Jev Is Not a Silver Bullet</h3>
+<ul>
+<li><strong>Judge-only, no generation</strong>: it will never write replies or code for you; any "content production" step still needs a generative model as the fallback &mdash; it's a supporting actor, not the lead.</li>
+<li><strong>Quality lives in question design</strong>: results are typed, but missing options or badly designed scales drag decision quality down &mdash; and when it fails, you can't easily blame the model.</li>
+<li><strong>State construction matters</strong>: the more structured and complete your input state, the more accurate the judgment; dumping messy raw context in will degrade results sharply.</li>
+<li><strong>Ecosystem is still early</strong>: the model has been out for only a few weeks; mature, reusable patterns and third-party integrations are scarce, and large-scale production validation still needs time.</li>
+</ul>
+
+<h3>Three-Minute Onboarding Checklist</h3>
+<ol>
+<li>Register at console.typesafe.ai and grab your API key</li>
+<li>Structure the "current situation" into a State block</li>
+<li>List the judgments you want: pick-one / score / yes-or-no</li>
+<li>Make one call via the official SDK or REST API and read the typed results</li>
+<li>Branch on confidence: auto-execute when high, escalate to an LLM or human when low</li>
+</ol>
 
 <div class="callout">
 <p><strong>Tip</strong>: Jev won't replace LLMs, but it may change agent architecture &mdash; peel "judgment" out of full-text generation instead of using a sledgehammer to crack a nut. When building an agent, map out your decision list first: give the yes/no and pick-one questions to Jev, keep the writing tasks for generative models, and both cost and speed will improve dramatically.</p>
